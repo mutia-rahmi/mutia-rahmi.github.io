@@ -51,17 +51,68 @@
     z-index:1;
   }
 
+  /* ===== Entrance animation ===== */
+  @keyframes fadeUp{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+  .letterhead, section{
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  section:nth-of-type(1){ animation-delay: 0.05s; }
+  section:nth-of-type(2){ animation-delay: 0.1s; }
+  section:nth-of-type(3){ animation-delay: 0.15s; }
+  section:nth-of-type(4){ animation-delay: 0.2s; }
+  section:nth-of-type(5){ animation-delay: 0.25s; }
+  section:nth-of-type(6){ animation-delay: 0.3s; }
+
   /* ===== Letterhead ===== */
   .letterhead{
     padding-top: 56px;
     display:flex;
-    align-items:flex-start;
-    justify-content: space-between;
-    gap: 32px;
+    align-items:center;
+    justify-content: flex-start;
+    gap: 30px;
     border-bottom: 3px solid var(--navy);
     padding-bottom: 28px;
+    position: relative;
   }
 
+  .lh-photo-wrap{
+    flex-shrink: 0;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(145deg, var(--gold), var(--gold-soft));
+    box-shadow: 0 8px 24px rgba(27,42,69,0.18);
+  }
+  .lh-photo-inner{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--paper);
+    background: var(--navy);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .lh-photo-inner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display:block;
+  }
+  .lh-photo-inner .lh-initials{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    color: var(--paper);
+    letter-spacing: 0.02em;
+  }
+
+  .lh-text{ flex: 1; min-width: 0; }
   .lh-text h1{
     font-family: 'Fraunces', serif;
     font-weight: 600;
@@ -85,9 +136,12 @@
   }
 
   .seal{
-    flex-shrink: 0;
-    width: 88px;
-    height: 88px;
+    position: absolute;
+    top: 56px;
+    right: 0;
+    width: 72px;
+    height: 72px;
+    opacity: 0.85;
   }
 
   /* ===== Section headers ===== */
@@ -164,8 +218,15 @@
     display: grid;
     grid-template-columns: 74px 1fr;
     gap: 20px;
-    padding: 22px 0;
+    padding: 22px 18px;
+    margin: 0 -18px;
     border-bottom: 1px solid var(--paper-line);
+    border-radius: 6px;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .berkas-item:hover{
+    background: rgba(176,138,62,0.06);
+    transform: translateX(4px);
   }
   .berkas-no{
     font-family: 'IBM Plex Mono', monospace;
@@ -355,6 +416,12 @@
 <div class="wrap">
 
   <header class="letterhead">
+    <div class="lh-photo-wrap">
+      <div class="lh-photo-inner">
+        <img src="foto.jpg" alt="Foto Mutia Rahmi" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="lh-initials" style="display:none;">MR</span>
+      </div>
+    </div>
     <div class="lh-text">
       <h1>Mutia Rahmi</h1>
       <p class="lh-role"><strong>A.Md.RM., S.K.M.</strong> — Tenaga Kependidikan, Direktorat Perencanaan &amp; Pengembangan, Universitas Andalas</p>
