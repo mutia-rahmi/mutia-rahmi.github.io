@@ -125,6 +125,8 @@
     font-size: 1rem;
     color: var(--slate);
     margin: 0 0 3px;
+    max-width: 56ch;
+    text-wrap: balance;
   }
   .lh-role strong{ color: var(--ink); font-weight: 600; }
   .lh-ref{
@@ -133,15 +135,6 @@
     color: var(--gold);
     letter-spacing: 0.04em;
     margin-top: 10px;
-  }
-
-  .seal{
-    position: absolute;
-    top: 56px;
-    right: 0;
-    width: 72px;
-    height: 72px;
-    opacity: 0.85;
   }
 
   /* ===== Section headers ===== */
@@ -183,6 +176,8 @@
     font-size: 1.05rem;
     max-width: 66ch;
     color: var(--ink);
+    text-align: justify;
+    text-justify: inter-word;
   }
   .ringkasan p + p{ margin-top: 14px; }
 
@@ -428,13 +423,6 @@
       <p class="lh-role">Padang, Sumatera Barat</p>
       <div class="lh-ref">REF: 001/PORTOFOLIO-MR/2026</div>
     </div>
-    <svg class="seal" viewBox="0 0 100 100" aria-hidden="true">
-      <circle cx="50" cy="50" r="46" fill="none" stroke="#B08A3E" stroke-width="1.5"/>
-      <circle cx="50" cy="50" r="38" fill="none" stroke="#B08A3E" stroke-width="1"/>
-      <text x="50" y="35" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="7" fill="#1B2A45" letter-spacing="1">TERVERIFIKASI</text>
-      <text x="50" y="58" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="15" fill="#1B2A45">MR</text>
-      <text x="50" y="72" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="6" fill="#9C3B2E" letter-spacing="1">2026</text>
-    </svg>
   </header>
 
   <section class="ringkasan">
