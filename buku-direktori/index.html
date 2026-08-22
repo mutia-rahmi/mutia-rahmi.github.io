@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buku Direktori SDM UNAND — Mutia Rahmi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #1B2A45;
+    --navy-deep: #101a2c;
+    --gold: #B08A3E;
+    --gold-soft: #D8C08B;
+    --paper: #FAF7F0;
+    --paper-line: #E4DECF;
+    --ink: #211F1A;
+    --slate: #63666B;
+    --stamp: #9C3B2E;
+    --green: #3F6B4E;
+  }
+  *{ box-sizing: border-box; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .wrap{ max-width: 880px; margin: 0 auto; padding: 0 28px 100px; }
+
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top: 32px;
+    font-size: 0.85rem;
+    color: var(--slate);
+    text-decoration:none;
+  }
+  .back-link:hover{ color: var(--navy-deep); }
+
+  header.top{
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 24px;
+    margin-top: 20px;
+  }
+  header.top .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  header.top h1{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+    margin: 8px 0 10px;
+    color: var(--navy-deep);
+    letter-spacing: -0.01em;
+  }
+  header.top p{
+    color: var(--slate);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  .role-note{
+    background: #fff;
+    border: 1px solid var(--paper-line);
+    border-left: 3px solid var(--gold);
+    padding: 14px 18px;
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--ink);
+  }
+  .role-note strong{ color: var(--navy-deep); }
+  .role-note ul{ margin: 8px 0 0; padding-left: 18px; }
+  .role-note li{ margin-bottom: 4px; }
+
+  .privacy-note{
+    background: rgba(99,102,107,0.06);
+    border: 1px solid var(--paper-line);
+    border-left: 3px solid var(--slate);
+    padding: 12px 18px;
+    margin-top: 16px;
+    font-size: 0.82rem;
+    color: var(--slate);
+    font-style: italic;
+  }
+
+  section{ margin-top: 48px; }
+  .sec-head{
+    display:flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .sec-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    border: 1px solid var(--gold-soft);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .sec-head h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--navy-deep);
+  }
+  .sec-rule{ flex:1; height:1px; background: var(--paper-line); margin-left:6px; }
+
+  .proyek-card{
+    background: #fff;
+    border: 1px solid var(--paper-line);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+
+  .stat-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .stat{
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+  .stat .label{
+    font-size: 0.7rem;
+    color: var(--slate);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .stat .value{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--navy-deep);
+    margin-top: 2px;
+  }
+  .stat .value.small{ font-size: 1rem; }
+
+  .flow{
+    display:flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .flow-step{
+    display:flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--paper-line);
+  }
+  .flow-step:last-child{ border-bottom:none; }
+  .flow-num{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--gold);
+    width: 28px;
+    flex-shrink:0;
+  }
+  .flow-body h4{
+    margin: 0 0 4px;
+    font-size: 0.95rem;
+    color: var(--navy-deep);
+    font-weight: 600;
+  }
+  .flow-body p{
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--slate);
+  }
+
+  .kategori-list{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .kategori{
+    background: #fff;
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 0.88rem;
+  }
+  .kategori .k-title{ color: var(--navy-deep); font-weight: 600; margin-bottom: 2px; }
+  .kategori .k-note{ color: var(--slate); font-size: 0.8rem; }
+
+  footer.foot{
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 3px solid var(--navy);
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--slate);
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 640px){
+    .stat-grid{ grid-template-columns: repeat(2,1fr); }
+    .kategori-list{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="https://mutia-rahmi.github.io/">← Kembali ke Portofolio</a>
+
+  <header class="top">
+    <div class="eyebrow">Berkas Proyek 001</div>
+    <h1>Buku Direktori SDM UNAND 2025</h1>
+    <p>Otomasi penyusunan buku direktori resmi Sumber Daya Manusia Universitas Andalas menggunakan Mail Merge, menggantikan proses penyusunan manual sebelumnya.</p>
+  </header>
+
+  <div class="role-note">
+    <strong>Peran saya:</strong> mengelola database dan mengotomasi produksi lima buku direktori resmi via Mail Merge, serta mendesain sampul untuk keenamnya (termasuk "UNAND dalam Angka" yang hanya saya kerjakan bagian covernya).
+  </div>
+
+  <div class="privacy-note">
+    Catatan: karena buku direktori memuat data pribadi (nama, jabatan, foto) ±3.200 dosen dan tenaga kependidikan, isi datanya tidak ditampilkan di sini. Halaman ini hanya menjelaskan proses dan sistem kerja yang dibangun.
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>Skala Pekerjaan</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="proyek-card">
+      <div class="stat-grid">
+        <div class="stat"><div class="label">Data Diolah</div><div class="value small">±3.200 orang</div></div>
+        <div class="stat"><div class="label">Judul Diterbitkan</div><div class="value small">6 buku</div></div>
+        <div class="stat"><div class="label">Entri Direktori Pimpinan</div><div class="value small">±710 orang</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>Alur Kerja</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="proyek-card">
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-num">01</div>
+          <div class="flow-body">
+            <h4>Menyusun database Excel terstruktur</h4>
+            <p>Data dosen dan tenaga kependidikan dirapikan ke format tabel standar sebagai sumber Mail Merge.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">02</div>
+          <div class="flow-body">
+            <h4>Membangun template Word</h4>
+            <p>Template layout per entri disiapkan agar field database otomatis terisi saat digabung.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">03</div>
+          <div class="flow-body">
+            <h4>Menjalankan Mail Merge</h4>
+            <p>Ratusan halaman entri dihasilkan otomatis, menggantikan proses susun manual satu per satu.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">04</div>
+          <div class="flow-body">
+            <h4>Mendesain sampul</h4>
+            <p>Cover kelima judul buku dirancang agar konsisten dengan identitas visual institusi.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">05</div>
+          <div class="flow-body">
+            <h4>Publikasi digital</h4>
+            <p>Dokumen final diunggah ke menu unduhan pada situs web Direktorat Perencanaan &amp; Pengembangan untuk akses publik. <a href="https://ditrenbang.unand.ac.id" target="_blank" rel="noopener" style="color:var(--navy-deep);">ditrenbang.unand.ac.id ↗</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>Judul yang Diproduksi</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="kategori-list">
+      <div class="kategori"><div class="k-title">Direktori Pimpinan</div><div class="k-note">2025</div></div>
+      <div class="kategori"><div class="k-title">Direktori Tendik ASN</div><div class="k-note">2025</div></div>
+      <div class="kategori"><div class="k-title">Direktori Dosen ASN</div><div class="k-note">2025</div></div>
+      <div class="kategori"><div class="k-title">Direktori Tendik dan Dosen Non-ASN</div><div class="k-note">2025</div></div>
+      <div class="kategori"><div class="k-title">Direktori Penerima Tunjangan Kehormatan Guru Besar dan Profesi Dosen</div><div class="k-note">2025</div></div>
+      <div class="kategori"><div class="k-title">UNAND dalam Angka</div><div class="k-note">Hanya desain cover</div></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    OUTPUT DITANDATANGANI REKTOR &amp; DIPUBLIKASIKAN SEBAGAI ACUAN INSTITUSI
+  </footer>
+
+</div>
+</body>
+</html>
