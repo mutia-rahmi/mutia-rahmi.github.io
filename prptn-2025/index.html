@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoring &amp; Evaluasi Penataan Aset PRPTN — Mutia Rahmi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #1B2A45;
+    --navy-deep: #101a2c;
+    --gold: #B08A3E;
+    --gold-soft: #D8C08B;
+    --paper: #FAF7F0;
+    --paper-line: #E4DECF;
+    --ink: #211F1A;
+    --slate: #63666B;
+    --stamp: #9C3B2E;
+    --green: #3F6B4E;
+  }
+  *{ box-sizing: border-box; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .wrap{ max-width: 880px; margin: 0 auto; padding: 0 28px 100px; }
+
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top: 32px;
+    font-size: 0.85rem;
+    color: var(--slate);
+    text-decoration:none;
+  }
+  .back-link:hover{ color: var(--navy-deep); }
+
+  header.top{
+    border-bottom: 3px solid var(--navy);
+    padding-bottom: 24px;
+    margin-top: 20px;
+  }
+  header.top .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  header.top h1{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+    margin: 8px 0 10px;
+    color: var(--navy-deep);
+    letter-spacing: -0.01em;
+  }
+  header.top p{
+    color: var(--slate);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  .role-note{
+    background: #fff;
+    border: 1px solid var(--paper-line);
+    border-left: 3px solid var(--gold);
+    padding: 14px 18px;
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--ink);
+  }
+  .role-note strong{ color: var(--navy-deep); }
+  .role-note ul{ margin: 8px 0 0; padding-left: 18px; }
+  .role-note li{ margin-bottom: 4px; }
+
+  section{ margin-top: 48px; }
+  .sec-head{
+    display:flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .sec-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    border: 1px solid var(--gold-soft);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .sec-head h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--navy-deep);
+  }
+  .sec-rule{ flex:1; height:1px; background: var(--paper-line); margin-left:6px; }
+
+  /* Project card */
+  .proyek-card{
+    background: #fff;
+    border: 1px solid var(--paper-line);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .proyek-card h3{
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    margin: 0 0 4px;
+    color: var(--navy-deep);
+  }
+  .proyek-card .tahun{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--slate);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .stat-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+  .stat{
+    background: var(--paper);
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+  .stat .label{
+    font-size: 0.7rem;
+    color: var(--slate);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .stat .value{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--navy-deep);
+    margin-top: 2px;
+  }
+  .stat .value.small{ font-size: 1rem; }
+
+  .progress-row{
+    margin-top: 16px;
+    display:flex;
+    align-items:center;
+    gap: 12px;
+  }
+  .progress-label{
+    font-size: 0.8rem;
+    color: var(--slate);
+    width: 150px;
+    flex-shrink:0;
+  }
+  .progress-track{
+    flex:1;
+    height: 8px;
+    background: var(--paper-line);
+    border-radius: 4px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    background: linear-gradient(90deg, var(--gold), var(--green));
+    border-radius: 4px;
+  }
+  .progress-pct{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--navy-deep);
+    width: 48px;
+    text-align:right;
+  }
+
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background: rgba(63,107,78,0.08);
+    color: var(--green);
+    border: 1px solid rgba(63,107,78,0.3);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    margin-top: 14px;
+  }
+  .badge.muted{
+    background: rgba(99,102,107,0.08);
+    color: var(--slate);
+    border-color: var(--paper-line);
+  }
+
+  /* Komponen breakdown */
+  .komponen-wrap{
+    background: #fff;
+    border: 1px solid var(--paper-line);
+    border-radius: 8px;
+    padding: 24px;
+  }
+  .komponen-item{ margin-bottom: 20px; }
+  .komponen-item:last-child{ margin-bottom: 0; }
+  .komponen-row{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+  .komponen-name{ font-size: 0.92rem; font-weight: 500; color: var(--ink); }
+  .komponen-nominal{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--navy-deep);
+    white-space: nowrap;
+  }
+  .komponen-track{
+    height: 20px;
+    background: var(--paper);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .komponen-fill{
+    height: 100%;
+    background: var(--navy);
+    border-radius: 4px;
+  }
+  .komponen-fill.gold{ background: var(--gold); }
+  .komponen-fill.muted{ background: var(--paper-line); }
+  .komponen-meta{
+    font-size: 0.74rem;
+    color: var(--slate);
+    margin-top: 4px;
+  }
+
+  /* Table */
+  .paket-table{
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid var(--paper-line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .paket-table th, .paket-table td{
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 0.86rem;
+    border-bottom: 1px solid var(--paper-line);
+  }
+  .paket-table th{
+    background: var(--navy);
+    color: var(--paper);
+    font-weight: 500;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .paket-table tr:last-child td{ border-bottom: none; }
+  .paket-table td.nominal{
+    font-family:'IBM Plex Mono', monospace;
+    color: var(--navy-deep);
+    white-space: nowrap;
+  }
+  .paket-table tr.total td{
+    font-weight: 600;
+    background: var(--paper);
+  }
+
+  /* Faculty grid */
+  .unit-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .unit-grid .unit{
+    background: #fff;
+    border: 1px solid var(--paper-line);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+  }
+  .unit-grid .unit .u-name{ color: var(--ink); }
+  .unit-grid .unit .u-nominal{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--slate);
+    margin-top: 2px;
+  }
+
+  footer.foot{
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 3px solid var(--navy);
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--slate);
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 640px){
+    .stat-grid{ grid-template-columns: repeat(2,1fr); }
+    .unit-grid{ grid-template-columns: 1fr; }
+    .progress-label{ width: 100px; font-size: 0.72rem; }
+    .komponen-row{ flex-direction: column; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a class="back-link" href="https://mutia-rahmi.github.io/">← Kembali ke Portofolio</a>
+
+  <header class="top">
+    <div class="eyebrow">Berkas Proyek 005</div>
+    <h1>Monitoring &amp; Evaluasi Penataan Aset PRPTN 2025</h1>
+    <p>Ringkasan Laporan Akhir Program Revitalisasi Perguruan Tinggi Negeri (PR-PTN) Tahun 2025 Universitas Andalas — serapan anggaran dan capaian fisik komponen Sarana, Prasarana, Pelatihan, dan Lokakarya/FGD.</p>
+  </header>
+
+  <div class="role-note">
+    <strong>Peran saya:</strong> mengelola dan monitoring-evaluasi data penataan aset untuk komponen Sarana, Prasarana, dan Pelatihan pada laporan akhir PRPTN 2025.
+    <ul>
+      <li>Menghimpun dokumen pendukung yang diunggah unit-unit terkait ke Google Drive yang telah disediakan</li>
+      <li>Merekap data realisasi volume, anggaran, dan capaian fisik dari dokumen tersebut ke format laporan resmi</li>
+      <li>Menyusun notulensi pada setiap rapat monev yang dilaksanakan</li>
+    </ul>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>Rekap Tingkat Institusi</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="proyek-card">
+      <h3>Serapan Anggaran &amp; Prestasi Fisik</h3>
+      <span class="tahun">Tahun Anggaran 2025 &middot; Per 31 Desember 2025</span>
+      <div class="stat-grid">
+        <div class="stat"><div class="label">Rencana Anggaran</div><div class="value small">Rp7,36 M</div></div>
+        <div class="stat"><div class="label">Realisasi</div><div class="value small">Rp7,36 M</div></div>
+        <div class="stat"><div class="label">Sisa Anggaran</div><div class="value small">Rp0</div></div>
+        <div class="stat"><div class="label">Prestasi Fisik</div><div class="value">100%</div></div>
+      </div>
+      <div class="progress-row">
+        <span class="progress-label">Serapan anggaran</span>
+        <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+        <span class="progress-pct">100%</span>
+      </div>
+    </div>
+
+    <div class="komponen-wrap">
+      <div class="komponen-item">
+        <div class="komponen-row">
+          <span class="komponen-name">Sarana</span>
+          <span class="komponen-nominal">Rp5.862.572.601</span>
+        </div>
+        <div class="komponen-track"><div class="komponen-fill" style="width:79.7%"></div></div>
+        <div class="komponen-meta">93 direncanakan → 106 unit/paket terealisasi &middot; 100% capaian fisik</div>
+      </div>
+      <div class="komponen-item">
+        <div class="komponen-row">
+          <span class="komponen-name">Prasarana (Renovasi Minor)</span>
+          <span class="komponen-nominal">Rp1.107.015.000</span>
+        </div>
+        <div class="komponen-track"><div class="komponen-fill gold" style="width:15.1%"></div></div>
+        <div class="komponen-meta">6 paket renovasi &middot; 100% capaian fisik</div>
+      </div>
+      <div class="komponen-item">
+        <div class="komponen-row">
+          <span class="komponen-name">Pelatihan &amp; Pengembangan Pendidik/Tendik</span>
+          <span class="komponen-nominal">Rp387.389.000</span>
+        </div>
+        <div class="komponen-track"><div class="komponen-fill gold" style="width:5.2%"></div></div>
+        <div class="komponen-meta">50 orang peserta (Non Gelar) &middot; 100% capaian fisik</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>Rincian Komponen Sarana</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="proyek-card">
+      <div class="stat-grid">
+        <div class="stat"><div class="label">Jumlah Item Pengadaan</div><div class="value small">106 item</div></div>
+        <div class="stat"><div class="label">Unit/Fakultas Penerima</div><div class="value small">14 unit</div></div>
+        <div class="stat"><div class="label">Realisasi Anggaran</div><div class="value small">Rp5,86 M</div></div>
+        <div class="stat"><div class="label">Serapan</div><div class="value">100%</div></div>
+      </div>
+      <div class="badge">✓ Seluruh pengadaan melalui e-katalog / katalog inaproc</div>
+      <p style="margin:16px 0 8px; font-size:0.8rem; color:var(--slate); text-transform:uppercase; letter-spacing:0.04em;">Distribusi nilai per unit penerima terbesar</p>
+      <div class="unit-grid">
+        <div class="unit"><div class="u-name">Fak. Pertanian</div><div class="u-nominal">Rp461,1 jt</div></div>
+        <div class="unit"><div class="u-name">Fak. Peternakan</div><div class="u-nominal">Rp447,7 jt</div></div>
+        <div class="unit"><div class="u-name">Fak. Kesehatan Masyarakat</div><div class="u-nominal">Rp430,4 jt</div></div>
+        <div class="unit"><div class="u-name">Fak. Teknologi Informasi</div><div class="u-nominal">Rp427,9 jt</div></div>
+        <div class="unit"><div class="u-name">Fak. Kedokteran</div><div class="u-nominal">Rp425,2 jt</div></div>
+        <div class="unit"><div class="u-name">Fak. Farmasi</div><div class="u-nominal">Rp423,6 jt</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>Rincian Komponen Prasarana</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <table class="paket-table">
+      <thead>
+        <tr>
+          <th>Kegiatan</th>
+          <th>Volume</th>
+          <th>Nilai</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Renovasi Ruang Kuliah Gedung B, Kampus Limau Manis</td>
+          <td>229,52 m²</td>
+          <td class="nominal">Rp199,77 jt</td>
+        </tr>
+        <tr>
+          <td>Renovasi Ruang Kuliah Gedung A, Kampus Limau Manis</td>
+          <td>228 m²</td>
+          <td class="nominal">Rp199,50 jt</td>
+        </tr>
+        <tr>
+          <td>Renovasi Toilet Lantai Dasar Gedung B, Kampus Limau Manis</td>
+          <td>23,63 m²</td>
+          <td class="nominal">Rp194,25 jt</td>
+        </tr>
+        <tr>
+          <td>Renovasi Laboratorium Fak. Peternakan, Kampus Payakumbuh</td>
+          <td>244,90 m²</td>
+          <td class="nominal">Rp197,50 jt</td>
+        </tr>
+        <tr>
+          <td>Perbaikan Insidentil Gedung Laboratorium Sentral, Kampus Limau Manis</td>
+          <td>333,62 m²</td>
+          <td class="nominal">Rp195,00 jt</td>
+        </tr>
+        <tr>
+          <td>Renovasi Lab. Rekayasa Data &amp; Business Intelligence, Fak. Teknologi Informasi</td>
+          <td>45,15 m²</td>
+          <td class="nominal">Rp121,00 jt</td>
+        </tr>
+        <tr class="total">
+          <td>Total — 6 paket</td>
+          <td>1.104,82 m²</td>
+          <td class="nominal">Rp1.107,02 jt</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>Pelatihan &amp; Pengembangan SDM</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <table class="paket-table">
+      <thead>
+        <tr>
+          <th>Program</th>
+          <th>Peserta</th>
+          <th>Nilai</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>In House Training &amp; Sertifikasi — Petugas Pengambil Contoh Uji, Teknisi Lab. Kimia &amp; Mikrobiologi</td>
+          <td>30 orang</td>
+          <td class="nominal">Rp187,59 jt</td>
+        </tr>
+        <tr>
+          <td>In House Training &amp; Sertifikasi — Kepala Laboratorium &amp; Kepala Laboratorium Pendidikan</td>
+          <td>20 orang</td>
+          <td class="nominal">Rp199,80 jt</td>
+        </tr>
+        <tr class="total">
+          <td>Total — 2 program</td>
+          <td>50 orang</td>
+          <td class="nominal">Rp387,39 jt</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer class="foot">
+    SUMBER: LAPORAN AKHIR PROGRAM REVITALISASI PERGURUAN TINGGI NEGERI (PR-PTN) UNAND TA 2025
+  </footer>
+
+</div>
+</body>
+</html>
