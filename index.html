@@ -10,7 +10,7 @@
 <style>
   :root{
     --navy:#1B2A45; --navy-deep:#101a2c; --gold:#B08A3E; --gold-soft:#D8C08B;
-    --paper:#FAF7F0; --paper-line:#E4DECF; --ink:#211F1A; --slate:#63666B; --green:#3F6B4E;
+    --paper:#FAF7F0; --paper-line:#E4DECF; --ink:#211F1A; --slate:#63666B; --green:#3F6B4E; --stamp:#9C3B2E;
   }
   *{ box-sizing:border-box; }
   body{ margin:0; background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans',sans-serif; font-size:16px; line-height:1.55; }
@@ -32,6 +32,7 @@
 
   .ringkasan{
     margin-top:22px; font-size:0.98rem; color:var(--ink); max-width:66ch;
+    text-align:justify; text-justify:inter-word;
   }
 
   .glance{
@@ -56,11 +57,12 @@
   .sorotan-body p{ margin:0; font-size:0.87rem; color:var(--slate); }
   .sorotan-body .metric{ color:var(--green); font-weight:600; }
   .sorotan-body .bukti{
-    display:inline-flex; align-items:center; gap:4px; margin-top:7px;
-    font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.02em;
-    color:var(--navy-deep); text-decoration:none; border-bottom:1px solid var(--gold-soft);
+    display:inline-flex; align-items:center; gap:6px; margin-top:7px;
+    font-size:0.82rem; font-weight:500; color:var(--stamp);
+    text-decoration:none; border-bottom:1px solid transparent; transition:border-color 0.15s ease;
   }
-  .sorotan-body .bukti:hover{ border-color:var(--gold); }
+  .sorotan-body .bukti:hover{ border-color:var(--stamp); }
+  .sorotan-body .bukti::after{ content:"↗"; font-size:0.9em; }
 
   .kompetensi-row{ display:flex; flex-wrap:wrap; gap:8px; }
   .kompetensi-row span{
@@ -125,7 +127,7 @@
       <div class="sorotan-body">
         <h3>Buku Direktori SDM UNAND 2025 (6 judul)</h3>
         <p>Mengolah data <span class="metric">±3.200 orang</span> lewat Excel &amp; Mail Merge, mendesain cover — output ditandatangani Rektor sebagai acuan institusi.</p>
-        <a class="bukti" href="buku-direktori/" target="_blank" rel="noopener">↗ Lihat ringkasan proses</a>
+        <a class="bukti" href="buku-direktori/" target="_blank" rel="noopener">Lihat ringkasan proses</a>
       </div>
     </div>
     <div class="sorotan-item">
@@ -133,7 +135,7 @@
       <div class="sorotan-body">
         <h3>Dashboard IKU UNAND</h3>
         <p>Membangun dashboard interaktif (Chart.js) untuk <span class="metric">8 indikator kinerja</span> periode 2021–2024.</p>
-        <a class="bukti" href="https://sereidn-bot.github.io/dashboard-iku/" target="_blank" rel="noopener">↗ Buka dashboard live</a>
+        <a class="bukti" href="https://sereidn-bot.github.io/dashboard-iku/" target="_blank" rel="noopener">Buka dashboard live</a>
       </div>
     </div>
     <div class="sorotan-item">
@@ -141,7 +143,7 @@
       <div class="sorotan-body">
         <h3>Monev Penataan Aset PRPTN 2025</h3>
         <p>Mengelola data 3 komponen anggaran <span class="metric">Rp7M+</span> dengan <span class="metric">100% serapan &amp; capaian fisik</span>.</p>
-        <a class="bukti" href="prptn-2025/" target="_blank" rel="noopener">↗ Lihat ringkasan data</a>
+        <a class="bukti" href="prptn-2025/" target="_blank" rel="noopener">Lihat ringkasan data</a>
       </div>
     </div>
     <div class="sorotan-item">
@@ -149,7 +151,7 @@
       <div class="sorotan-body">
         <h3>Pelaporan SARPRAS Nasional (SISARPRAS Kemdiktisaintek)</h3>
         <p>Input 14 formulir portal, termasuk laporan pemanfaatan SBSN dengan realisasi <span class="metric">Rp209M+</span>.</p>
-        <a class="bukti" href="sarpras-sbsn/" target="_blank" rel="noopener">↗ Lihat ringkasan data</a>
+        <a class="bukti" href="sarpras-sbsn/" target="_blank" rel="noopener">Lihat ringkasan data</a>
       </div>
     </div>
   </section>
