@@ -79,6 +79,26 @@
   .sorotan-body .bukti:hover{ border-color:var(--stamp); }
   .sorotan-body .bukti::after{ content:"↗"; font-size:0.9em; }
 
+  .link-chips{ display:flex; flex-wrap:wrap; gap:6px; margin-top:9px; }
+  .link-chips a, .link-chips summary{
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:0.74rem; font-weight:500; color:var(--stamp); background:#fff;
+    border:1px solid var(--paper-line); border-radius:14px; padding:4px 10px; text-decoration:none;
+    line-height:1.4; display:inline-block;
+  }
+  .link-chips a:hover, .link-chips summary:hover{ background:var(--stamp); color:#fff; border-color:var(--stamp); }
+  .link-chips .dd{ position:relative; display:inline-block; }
+  .link-chips .dd summary{ list-style:none; cursor:pointer; }
+  .link-chips .dd summary::-webkit-details-marker{ display:none; }
+  .link-chips .dd summary::after{ content:" ▾"; font-size:0.65em; }
+  .link-chips .dd[open] summary{ background:var(--stamp); color:#fff; border-color:var(--stamp); }
+  .link-chips .dd-menu{
+    position:absolute; top:calc(100% + 4px); left:0; z-index:5; min-width:130px;
+    background:#fff; border:1px solid var(--paper-line); border-radius:8px; padding:4px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1); display:flex; flex-direction:column; gap:4px;
+  }
+  .link-chips .dd-menu a{ white-space:nowrap; text-align:center; }
+
   .kompetensi-row{ display:flex; flex-wrap:wrap; gap:8px; }
   .kompetensi-row span{
     background:#fff; border:1px solid var(--paper-line); border-radius:20px;
@@ -145,29 +165,55 @@
     <div class="sorotan-item">
       <div class="sorotan-no">01</div>
       <div class="sorotan-body">
+        <h3>Pengembangan Kampus II UNAND Payakumbuh <span class="metric">(sedang berlangsung)</span></h3>
+        <p>Menyusun notulensi rapat dan laporan perjalanan dinas terkait perencanaan pembangunan Kandang Penelitian &amp; Praktikum Fakultas Peternakan serta Gedung Serba Guna, termasuk dokumentasi kegiatan peninjauan lokasi.</p>
+      </div>
+    </div>
+    <div class="sorotan-item">
+      <div class="sorotan-no">02</div>
+      <div class="sorotan-body">
+        <h3>Administrasi Pertanggungjawaban Kegiatan — Kementerian Lingkungan Hidup</h3>
+        <p>Mengelola kelengkapan administrasi pertanggungjawaban kegiatan, termasuk menyusun rincian biaya perjalanan dinas narasumber, untuk kegiatan Kementerian Lingkungan Hidup lintas institusi (UI, UGM, UNAND), 2–5 September 2026.</p>
+        <a class="bukti" href="klh-narasumber/" target="_blank" rel="noopener">Lihat ringkasan proses</a>
+      </div>
+    </div>
+    <div class="sorotan-item">
+      <div class="sorotan-no">03</div>
+      <div class="sorotan-body">
+        <h3>Web Admin &amp; Web Developer — Website Ditrenbang UNAND</h3>
+        <p>Mengelola &amp; mengembangkan website Ditrenbang UNAND menggunakan asistensi AI — mencakup struktur organisasi, PPID, capaian kinerja IKU, hingga artikel berita.</p>
+        <div class="link-chips">
+          <a href="https://ditrenbang.unand.ac.id/" target="_blank" rel="noopener">Website utama</a>
+          <a href="https://ditrenbang.unand.ac.id/index.php/struktur-organisasi-new" target="_blank" rel="noopener">Struktur Organisasi</a>
+          <a href="https://ditrenbang.unand.ac.id/index.php/ppid-ditrenbang" target="_blank" rel="noopener">Panel PPID</a>
+          <details class="dd">
+            <summary>Capaian Kinerja IKU</summary>
+            <div class="dd-menu">
+              <a href="https://ditrenbang.unand.ac.id/index.php/capaian-kinerja/iku-2021-2025" target="_blank" rel="noopener">2021–2025</a>
+              <a href="https://ditrenbang.unand.ac.id/index.php/capaian-kinerja/iku-2026/tw-i-2026" target="_blank" rel="noopener">2026 TW I</a>
+              <a href="https://ditrenbang.unand.ac.id/index.php/capaian-kinerja/iku-2026/tw-ii-2026" target="_blank" rel="noopener">2026 TW II</a>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="sorotan-item">
+      <div class="sorotan-no">04</div>
+      <div class="sorotan-body">
+        <h3>Verifikasi Naskah Dinas Digital — SRIKANDI (Sistem Kearsipan Nasional)</h3>
+        <p>Memverifikasi naskah dinas Direktorat Perencanaan &amp; Pengembangan pada sistem SRIKANDI, mewakili Direktur sebagai tahap verifikasi sebelum naskah diteruskan untuk <span class="metric">tanda tangan elektronik (TTE) Wakil Rektor IV</span>.</p>
+      </div>
+    </div>
+    <div class="sorotan-item">
+      <div class="sorotan-no">05</div>
+      <div class="sorotan-body">
         <h3>Buku Direktori SDM UNAND 2025 (6 judul)</h3>
         <p>Mengolah data <span class="metric">±3.200 orang</span> lewat Excel &amp; Mail Merge, mendesain cover — output ditandatangani Rektor sebagai acuan institusi.</p>
         <a class="bukti" href="buku-direktori/" target="_blank" rel="noopener">Lihat ringkasan proses</a>
       </div>
     </div>
     <div class="sorotan-item">
-      <div class="sorotan-no">02</div>
-      <div class="sorotan-body">
-        <h3>Dashboard Indikator Kinerja Utama (IKU) UNAND</h3>
-        <p>Membangun dan mengembangkan dashboard interaktif (Chart.js) capaian IKU UNAND, mencakup periode 2021–2025 (<span class="metric">8 indikator</span>) dan 2026 Triwulan I–II (<span class="metric">16 indikator</span>, format Ditjen Dikti).</p>
-        <a class="bukti" href="https://sereidn-bot.github.io/dashboard-iku/" target="_blank" rel="noopener">Buka dashboard live</a>
-      </div>
-    </div>
-    <div class="sorotan-item">
-      <div class="sorotan-no">03</div>
-      <div class="sorotan-body">
-        <h3>Monitoring &amp; Evaluasi (Monev) Penataan Aset Program Revitalisasi Perguruan Tinggi Negeri (PRPTN) 2025</h3>
-        <p>Mengelola data 3 komponen anggaran <span class="metric">Rp7M+</span> dengan <span class="metric">100% serapan &amp; capaian fisik</span>.</p>
-        <a class="bukti" href="prptn-2025/" target="_blank" rel="noopener">Lihat ringkasan data</a>
-      </div>
-    </div>
-    <div class="sorotan-item">
-      <div class="sorotan-no">04</div>
+      <div class="sorotan-no">06</div>
       <div class="sorotan-body">
         <h3>Pelaporan Sarana &amp; Prasarana (SARPRAS) Nasional (SISARPRAS Kemdiktisaintek)</h3>
         <p>Input 14 formulir portal, termasuk laporan pemanfaatan Surat Berharga Syariah Negara (SBSN) dengan realisasi <span class="metric">Rp209M+</span>.</p>
@@ -175,18 +221,11 @@
       </div>
     </div>
     <div class="sorotan-item">
-      <div class="sorotan-no">05</div>
+      <div class="sorotan-no">07</div>
       <div class="sorotan-body">
-        <h3>Verifikasi Naskah Dinas Digital — SRIKANDI (Sistem Kearsipan Nasional)</h3>
-        <p>Memverifikasi naskah dinas Direktorat Perencanaan &amp; Pengembangan pada sistem SRIKANDI, mewakili Direktur sebagai tahap verifikasi sebelum naskah diteruskan untuk <span class="metric">tanda tangan elektronik (TTE) Wakil Rektor IV</span>.</p>
-      </div>
-    </div>
-    <div class="sorotan-item">
-      <div class="sorotan-no">06</div>
-      <div class="sorotan-body">
-        <h3>Administrasi Pertanggungjawaban Kegiatan — Kementerian Lingkungan Hidup</h3>
-        <p>Mengelola kelengkapan administrasi pertanggungjawaban kegiatan, termasuk menyusun rincian biaya perjalanan dinas narasumber, untuk kegiatan Kementerian Lingkungan Hidup lintas institusi (UI, UGM, UNAND), 2–5 September 2026.</p>
-        <a class="bukti" href="klh-narasumber/" target="_blank" rel="noopener">Lihat ringkasan proses</a>
+        <h3>Monitoring &amp; Evaluasi (Monev) Penataan Aset Program Revitalisasi Perguruan Tinggi Negeri (PRPTN) 2025</h3>
+        <p>Mengelola data 3 komponen anggaran <span class="metric">Rp7M+</span> dengan <span class="metric">100% serapan &amp; capaian fisik</span>.</p>
+        <a class="bukti" href="prptn-2025/" target="_blank" rel="noopener">Lihat ringkasan data</a>
       </div>
     </div>
   </section>
@@ -227,5 +266,12 @@
   </footer>
 
 </div>
+<script>
+document.addEventListener('click', function(e){
+  document.querySelectorAll('.link-chips .dd[open]').forEach(function(d){
+    if(!d.contains(e.target)) d.removeAttribute('open');
+  });
+});
+</script>
 </body>
 </html>
